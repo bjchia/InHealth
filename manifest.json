@@ -7,15 +7,28 @@
   "version": "1.0",
   
 
+"background": {
+    "scripts": ["jquery-3.2.1.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery-3.2.1.js", "js/index.js"]
+    }
+  ],
 
   "browser_action": {
     "default_icon": "calhacks.png",
     "default_popup": "popup.html"
   },
-
+  
   "permissions": [
     "notifications",
     "activeTab",
     "storage"
   ]
+"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
