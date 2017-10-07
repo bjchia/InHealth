@@ -8,6 +8,7 @@
   <head>
     <title>Getting Started Extension's Popup</title>
     <style type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       body {
         margin: 10px;
         white-space: nowrap;
@@ -22,14 +23,51 @@
         display: flex;
         justify-content: space-between;
       }
+        
+#slidecontainer {
+    width: 100%;
+}
+
+.sliderbar {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 5px;
+    border-radius: 2px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.sliderbar:hover {
+    opacity: 1;
+}
+
+.sliderbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+}
+
+.sliderbar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+}    
+    
     .switch {
       position: relative;
       display: inline-block;
       width: 48px;
       height: 22px;
     }
-
-
 
     .switch input {display:none;}
 
@@ -72,6 +110,7 @@
     }
 
     </style>
+<<<<<<< HEAD
 
 <!--<h2>Duration Slider</h2>
 
@@ -91,6 +130,21 @@
 
 
 <!-- 4 different categories-->
+=======
+      
+</head>
+    
+<h2>Name of Chrome Extension</h2>
+
+    
+<div class="w3-container">
+    <div class="w3-col w3-container" style="width:25%">
+            <input type="range" min="1" max="60" value="30" class="sliderbar" id="range">
+        
+    </div>
+    </div>
+    
+>>>>>>> 830b0d46d671d179db2bcb23a174a63e90b6329f
 <div class="w3-row">
   <div class="w3-col w3-center" style="width:50%"> 
       <p>Light Cardio</p>
