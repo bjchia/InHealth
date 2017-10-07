@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "InHealth",
-  "description": "TEST TEST TEST",
+  "description": "TEST",
   "version": "1.0",
 
   "browser_action": {
