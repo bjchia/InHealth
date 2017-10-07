@@ -778,7 +778,7 @@
             }
             end = (isNumber(end) ? parseFloat(end) : 360) % 360;
             if (end <= this.options.startAngle) end += 360;
-            return end;
+            return end + 40;
         },
         _refreshCircleShape: function () {
             var circleShape = this.options.circleShape;
