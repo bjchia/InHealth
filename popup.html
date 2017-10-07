@@ -7,7 +7,7 @@
 <html>
 
   <head>
-  <script src="jquery-3.2.1.min.js"></script>
+  <script src="jquery.js"></script>
     <title>Getting Started Extension's Popup</title>
     <style type="text/css">
       body {
@@ -77,27 +77,21 @@
 
 <!--Front End Display-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-<script type="text/javascript" src="notifications.js"></script>
+<link href="roundslider.css" rel="stylesheet">
 
 </head>
-<h3><div style= "padding-right: 10px; padding-left: 10px; padding-top: 10px;padding-bottom: 5px;">InHealth</div></h3>
+<h3><div style= "padding-right: 10px; padding-left: 10px; padding-top: 10px;padding-bottom: 5px; text-align: center">InHealth</div></h3>
 
 <!--Slider Timer-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="css/style.css">
 
-<form oninput="output.value = Math.round(range.valueAsNumber / 1000)">
-    <div class="range" style= "padding-top: 50px; padding-right: 5px; padding-left: 5px;">
-      <input name="range" type="range" min="0" max="100000">
-      <div class="range-output">
-        <output class="output" name="output" for="range">
-          50
-        </output>
-      </div>
-    </div>
-  </form>
+<div style= "padding-right: 100px; padding-left: 100px;">
+<div id="slider"></div>
+</div>
 
-<script  src="js/index.js"></script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="roundslider.js"></script>
+<script src="slider.js"></script>
+<script type="text/javascript" src="notifications.js"></script>
 
 
 <!-- 4 different categories-->
