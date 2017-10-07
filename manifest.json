@@ -11,11 +11,11 @@
   "browser_action": {
     "default_icon": "calhacks.png",
     "default_popup": "popup.html"
-    
   },
+
   "permissions": [
+    "notifications",
     "activeTab",
-    "storage",
-    "notifications"
+    "storage"
   ]
 }
