@@ -8,11 +8,11 @@ var options = {
 function creationCallback() {
 }
 
-var timer = $('#myRange')[0].value;
+//var timer = $('#myRange')[0].value;
 
-console.log(timer);
+//console.log(timer);
 
-setInterval(notificationPopup, 3000);
+//setInterval(notificationPopup, 3000);
 
 function notificationPopup() {
 	chrome.notifications.create(options, creationCallback);
