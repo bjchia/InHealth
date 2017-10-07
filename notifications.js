@@ -8,7 +8,7 @@ var options = {
 function creationCallback() {
 }
 
-var timer = $("#myRange").value;
+var timer = $('#myRange')[0].value;
 
 console.log(timer);
 
