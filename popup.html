@@ -72,76 +72,32 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
     }
-
-    /* Timer Slider */
-    #slidecontainertimer {
-    width: 100%;
-    }
-
-    .slidertimer {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    }
-
-    .slidertimer:hover {
-    opacity: 1;
-    }
-
-    .slidertimer::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #428ff4;
-    cursor: pointer;
-    }
-
-    .slidertimer::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #428ff4;
-    cursor: pointer;
-    }
-
     </style>
-
-<!--JS source code -->
-<script>
-var slidertimer = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slidertimer.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
-
-
 
 <!--Front End Display-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-<script src="timeslider.js"></script>
 <script type="text/javascript" src="notifications.js"></script>
 
 </head>
 <h3><div style= "padding-right: 10px; padding-left: 10px; padding-top: 10px;padding-bottom: 5px;">Name of Chrome Extension</div></h3>
 
 <!--Slider Timer-->
-<div class="w3-row" style= "padding-right: 10px; padding-left: 10px">
-  <div id="slidecontainertimer">
-  <input type="range" min="1" max="100" value="50" class="slidertimer" id="myRange">
-  <p>Value: <span id="demo"></span></p>
-</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/style.css">
 
+<form oninput="output.value = Math.round(range.valueAsNumber / 1000)">
+    <div class="range">
+      <input name="range" type="range" min="0" max="100000">
+      <div class="range-output">
+        <output class="output" name="output" for="range">
+          50
+        </output>
+      </div>
+    </div>
+  </form>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script  src="js/index.js"></script>
 
 <!-- 4 different categories-->
 <div class="w3-row">
