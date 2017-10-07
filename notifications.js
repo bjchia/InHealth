@@ -1,5 +1,3 @@
-console.log('test');
-
 var options = {
   type: "basic",
   title: "Primary Title",
@@ -7,12 +5,15 @@ var options = {
   iconUrl: "calhacks.png"
 }
 
-console.log("works");
-
 function creationCallback() {
-	
 }
 
-chrome.notifications.create(options, creationCallback);
+var timer = $("#myRange").value;
 
-console.log("cool");
+console.log(timer);
+
+setInterval(notificationPopup, 3000);
+
+function notificationPopup() {
+	chrome.notifications.create(options, creationCallback);
+}
