@@ -30,10 +30,5 @@
     "activeTab",
     "storage"
   ]
-<<<<<<< HEAD
-"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
-=======
 
-
->>>>>>> 9d1047a25cd644571c6968fa692a96d71dbb7471
 }
