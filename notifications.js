@@ -7,12 +7,10 @@ var options = {
 
 function creationCallback() {
 }
-
-//var timer = $('#myRange')[0].value;
-
-//console.log(timer);
-
-//setInterval(notificationPopup, 3000);
+var time = 0;
+chrome.storage.sync.get(['timer'],function(result) {
+	time = result.timer;
+})
 
 function notificationPopup() {
 	chrome.notifications.create(options, creationCallback);
