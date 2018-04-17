@@ -11,6 +11,7 @@ var interval;
 
 function save_options() {
     var time = document.getElementById('timer').value;
+    console.log(time);
     //var likesColor = document.getElementById('like').checked;
     if(time == 0) {
         clearInterval(interval);

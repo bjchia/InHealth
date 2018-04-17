@@ -13,5 +13,5 @@ chrome.storage.sync.get(['timer'],function(result) {
 })
 
 function notificationPopup() {
-	chrome.notifications.create(options, creationCallback);
+	chrome.notifications.create(42,options, creationCallback);
 }
