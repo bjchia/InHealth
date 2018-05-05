@@ -20,9 +20,9 @@ function setTimer(time) {
             minutes = time;
             innerMinutes = 0;
             interval = setInterval(notificationPopup, time * 1000 * 60);
-            //internalCountdown = setInterval(countDown,1 * 1000);
+            internalCountdown = setInterval(countDown,1 * 1000);
             console.log(time);
-            timerMain = time;
+            minutes = time;
         }
 }
 
@@ -32,11 +32,15 @@ function countDown() {
     if (innerMinutes == minutes) {
         innerMinutes = 0;
     }
-    updateSlider(innerMinutes);
+    updateSlider(minutes - innerMinutes);
     console.log(innerMinutes);
+
+    chrome.storage.sync.set({
+        optionCountDown: innerMinutes
+    });
 }
 //when the chrome extension starts up and need to get the pre-existing timer
-chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function(result){
+chrome.storage.sync.get({optionTimer: 30, optionType: "meditation", optionCountDown: "30"}, function(result){
         setType(result.optionType);
         setTime(result.optionTimer);
         setTimer(result.optionTimer);

@@ -39,10 +39,7 @@ chrome.storage.sync.get(['optionTimer', 'optionType'], function(result) {
     setTime(result.optionTimer);
     document.getElementById(result.optionType).classList.add("active");
     updateSlider(result.optionTimer);
-
-    let savedTime = result.optionTimer;
-    let optionNum = (savedTime - 30) / 15;
-    $('#timer>option:eq(' + optionNum + ')').attr('selected', true);
+    document.getElementById('timer').value = result.optionTimer;
 });
 
 $('#timer').change(function() {
