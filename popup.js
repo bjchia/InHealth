@@ -34,13 +34,28 @@ function updateSlider(val) {
 //     save_options);
 
 //when the page is loaded up and add active button to the previously saved option type
-chrome.storage.sync.get(['optionTimer', 'optionType'], function(result) {
+chrome.storage.sync.get(['optionTimer', 'optionType', 'optionCountDown'], function(result) {
     console.log(result.optionTimer);
     setTime(result.optionTimer);
     document.getElementById(result.optionType).classList.add("active");
-    updateSlider(result.optionTimer);
     document.getElementById('timer').value = result.optionTimer;
+    innerMinutes = result.optionCountDown;
+    console.log("this is countdown " + result.optionCountDown);
+    updateSlider(result.optionTimer - result.optionCountDown);
 });
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for(key in changes) {
+        //if the timer was changed
+        if (key == "optionCountDown") {
+            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation", optionCountDown: 1}, function (result) {
+                updateSlider(result.optionTimer - result.optionCountDown);
+                console.log('setting timer to ' + result.optionTimer);
+            });
+        }
+    }
+});
+
 
 $('#timer').change(function() {
     save_options();

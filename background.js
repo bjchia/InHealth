@@ -9,6 +9,7 @@ var internalCountdown;
 function setTimer(time) {
         //clears any existing interval
         clearInterval(interval);
+        clearInterval(internalCountdown);
         //creates new interval for the notification if the timer is changed
 
         //if user wants to disable the timer
@@ -19,7 +20,7 @@ function setTimer(time) {
         else {
             minutes = time;
             innerMinutes = 0;
-            interval = setInterval(notificationPopup, time * 1000 * 60);
+            interval = setInterval(notificationPopup, time * 1000 * 1);
             internalCountdown = setInterval(countDown,1 * 1000);
             console.log(time);
             minutes = time;
@@ -32,9 +33,8 @@ function countDown() {
     if (innerMinutes == minutes) {
         innerMinutes = 0;
     }
-    updateSlider(minutes - innerMinutes);
+    //updateSlider(minutes - innerMinutes);
     console.log(innerMinutes);
-
     chrome.storage.sync.set({
         optionCountDown: innerMinutes
     });
@@ -53,7 +53,7 @@ chrome.storage.onChanged.addListener(function(changes) {
     for(key in changes) {
         //if the timer was changed
         if(key == "optionTimer") {
-            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function (result) {
+            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation", optionCountDown: 1}, function (result) {
                 setType(result.optionType);
                 setTimer(result.optionTimer);
                 console.log('setting timer to ' + result.optionTimer);
@@ -61,10 +61,18 @@ chrome.storage.onChanged.addListener(function(changes) {
         }
         //if the type of option is changed (doesn't reset timer)
         else if (key == "optionType") {
-            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function (result) {
+            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation", optionCountDown: 1}, function (result) {
                 setType(result.optionType);
             });
         }
+
+        // else if (key == "optionCountDown") {
+        //     chrome.storage.sync.get({optionTimer: 1, optionType: "meditation", optionCountDown: 1}, function (result) {
+        //         setCountDown(result.optionCountDown);
+        //         console.log(result.optionCountDown);
+        //         updateSlider(minutes - innerMinutes);
+        //     });
+        // }
 
     }
 });
@@ -99,4 +107,8 @@ function getTime() {
 
 function setTime(time) {
     timerMain = time;
+}
+
+function setCountDown(count) {
+    innerMinutes = count;
 }
