@@ -8,12 +8,57 @@
 
   <head>
   <script src="jquery.js"></script>
-  <link rel="stylesheet" href="js/bootstrap.js">
+  <link rel="stylesheet" href="css/bootstrap.css">
+    <style type="text/css">
+    body {
+    min-width: 300px; /* your desired width */
+    max-width: 100%;
+    position: relative;
+    vertical-align:middle;
+    }
+    </style>
 </head>
 
-  <button id="myButton" type="button" class="btn btn-outline-primary">Primary</button>
+  <div class="container">
+  <div class="row py-2">
+    <div class="col-6 text-center">
+      <button id="meditation" type="button" class="btn btn-outline-primary active">Meditation</button>
+    </div>
+    <div class="col-6 text-center">
+      <button id="workout" type="button" class="btn btn-outline-primary">Workout</button>
+    </div>
+    <div class="col-12 text-center py-2">
+      <button id="yoga" type="button" class="btn btn-outline-primary">Yoga</button>
+    </div>
+    <div class="col-12 text-center py-2">
+      <div class="form-group">
+        <label for="sel1">Select Timer:</label>
+        <select class="form-control" id="timer">
+          <option value="1">1 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+          <option value="60">1 hour</option>
+          <option value="75">1 hour 15 min</option>
+          <option value="90">1 hour 30 min</option>
+          <option value="105">1 hour 45 min</option>
+          <option value="120">2 hour</option>
+          <option value="135">2 hour 15 min</option>
+          <option value="150">2 hour 30 min</option>
+          <option value="165">2 hour 45 min</option>
+          <option value="180">3 hour</option>
+
+        </select>
+        <div id="status"></div>
+        <button id="save">Save</button>
+      </div>
+    </div>
+
+  </div>
+  </div>
 
 </body>
 
   <script type="text/javascript" src="notifications.js"></script>
+  <script type="text/javascript" src="popup.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
 </html>
