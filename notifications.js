@@ -23,18 +23,8 @@ var type;
 
 function creationCallback() {
 }
-var time = 0;
 
-chrome.storage.sync.get(['timer'],function(result) {
-    time = result.timer;
-});
-
-var type;
-
-chrome.storage.sync.get({optionType: "meditation"}, function(result){
-    type = result.optionType;
-});
-
+//where the notification is created
 function notificationPopup() {
         if (type === "yoga")
             chrome.notifications.create(yogaOptions, creationCallback);
@@ -44,10 +34,12 @@ function notificationPopup() {
             chrome.notifications.create(workoutOptions,creationCallback());
 }
 
+//gets the option type
 function getType() {
     return type;
 }
 
+//sets the option type (mainly used by other js files)
 function setType(typeOf) {
     type = typeOf;
     console.log("worked!");

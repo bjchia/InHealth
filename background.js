@@ -1,45 +1,48 @@
 var interval;
 
-function setTimer(time,type) {
-
-    //var likesColor = document.getElementById('like').checked;
-    if(time == 0) {
+//creates timer to notification
+function setTimer(time) {
+        //clears any existing interval
         clearInterval(interval);
-        interval = setInterval(notificationPopup, 6000);
-    }
-    else {
-        clearInterval(interval);
-        setType(type);
-        interval = setInterval(notificationPopup, time * 1000 * 10);
+        //creates new interval for the notification if the timer is changed
+        interval = setInterval(notificationPopup, time * 1000 * 60);
         console.log(time);
-    }
 }
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-
-//document.addEventListener('DOMContentLoaded', restore_options);
-
+//when the chrome extension starts up and need to get the pre-existing timer
 chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function(result){
-        setTimer(result.optionTimer, result.optionType);
+        setType(result.optionType);
+        setTimer(result.optionTimer);
 });
 
 
-chrome.storage.onChanged.addListener(function() {
-    chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function(result){
-        setTimer(result.optionTimer, result.optionType);
-    });
+//if any changes are set to the notification
+chrome.storage.onChanged.addListener(function(changes) {
+    for(key in changes) {
+        //if the timer was changed
+        if(key == "optionTimer") {
+            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function (result) {
+                setType(result.optionType);
+                setTimer(result.optionTimer);
+            });
+        }
+        //if the type of option is changed (doesn't reset timer)
+        else if (key == "optionType") {
+            chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function (result) {
+                setType(result.optionType);
+            });
+        }
+
+    }
 });
 
+//if the notification is clicked on and then gets the array of videos based on type
 chrome.notifications.onClicked.addListener(function() {
-    var random = Math.floor(Math.random() * 3);
+    var random = Math.floor(Math.random() * 1);
+    //gets the type of option
     var type = getType();
 
 
-    // chrome.storage.sync.get({optionType: "meditation"}, function(result){
-    //     type = result.optionType;
-    //     console.log(result.optionType);
-    // });
     if(type === "workout") {
         chrome.tabs.create({url: workoutVideos[random]});
     }
@@ -49,6 +52,6 @@ chrome.notifications.onClicked.addListener(function() {
     }
 
     else if (type === "yoga") {
-        chrome.tabs.create({url: yoga[random]});
+        chrome.tabs.create({url: yogaVideos[random]});
     }
 });

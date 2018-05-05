@@ -9,31 +9,24 @@
   <head>
   <script src="jquery.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
-    <style type="text/css">
-    body {
-    min-width: 300px; /* your desired width */
-    max-width: 100%;
-    position: relative;
-    vertical-align:middle;
-    }
-    </style>
+    <link rel="stylesheet" href="popup.css">
 </head>
-
+<body>
   <div class="container">
   <div class="row py-2">
     <div class="col-6 text-center">
-      <button id="meditation" type="button" class="btn btn-outline-primary active">Meditation</button>
+      <button id="meditation" type="button" tabindex="-1" class="btn btn-outline-primary">Meditation</button>
     </div>
     <div class="col-6 text-center">
-      <button id="workout" type="button" class="btn btn-outline-primary">Workout</button>
+      <button id="workout" type="button" tabindex="-1" class="btn btn-outline-primary">Workout</button>
     </div>
     <div class="col-12 text-center py-2">
-      <button id="yoga" type="button" class="btn btn-outline-primary">Yoga</button>
+      <button id="yoga" type="button" tabindex="-1" class="btn btn-outline-primary">Yoga</button>
     </div>
     <div class="col-12 text-center py-2">
       <div class="form-group">
         <label for="sel1">Select Timer:</label>
-        <select class="form-control" id="timer">
+        <select class="form-control" tabindex="-1" id="timer">
           <option value="1">1 min</option>
           <option value="30">30 min</option>
           <option value="45">45 min</option>
@@ -49,7 +42,7 @@
 
         </select>
         <div id="status"></div>
-        <button id="save">Save</button>
+        <button id="save" tabindex="-1">Save</button>
       </div>
     </div>
 
