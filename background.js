@@ -20,7 +20,7 @@ function setTimer(time) {
             minutes = time;
             innerMinutes = 0;
             interval = setInterval(notificationPopup, time * 1000 * 60);
-            internalCountdown = setInterval(countDown,1 * 1000);
+            //internalCountdown = setInterval(countDown,1 * 1000);
             console.log(time);
             timerMain = time;
         }
@@ -52,6 +52,7 @@ chrome.storage.onChanged.addListener(function(changes) {
             chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function (result) {
                 setType(result.optionType);
                 setTimer(result.optionTimer);
+                console.log('setting timer to ' + result.optionTimer);
             });
         }
         //if the type of option is changed (doesn't reset timer)

@@ -5,7 +5,10 @@ var obj;
 //saves the options of the new timer
 function save_options() {
     //gets value of dropdown menu
-    var time = $("#slider input[name='slider']")[0].value;
+    //var time = $("#slider input[name='slider']")[0].value;
+    //console.log(time);
+    var time = $('#timer').val();
+    updateSlider(time);
     console.log(time);
     //sets the optionTimer to the new time specified by the user
     chrome.storage.sync.set({
@@ -36,6 +39,14 @@ chrome.storage.sync.get(['optionTimer', 'optionType'], function(result) {
     setTime(result.optionTimer);
     document.getElementById(result.optionType).classList.add("active");
     updateSlider(result.optionTimer);
+
+    let savedTime = result.optionTimer;
+    let optionNum = (savedTime - 30) / 15;
+    $('#timer>option:eq(' + optionNum + ')').attr('selected', true);
+});
+
+$('#timer').change(function() {
+    save_options();
 });
 
 
