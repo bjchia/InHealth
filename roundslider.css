@@ -1,8 +1,12 @@
 ﻿/*!
- * roundSlider v1.3 | (c) 2015-2016, Soundar
+ * roundSlider v1.3.2 | (c) 2015-2018, Soundar
  * MIT license | http://roundsliderui.com/licence.html
  */
 
+.rs-ie, .rs-edge {
+    -ms-touch-action: none;
+    touch-action: none;
+}
 .rs-control { position: relative; outline: 0 none; }
 .rs-container { position: relative; }
 .rs-control *, .rs-control *:before, .rs-control *:after {
@@ -43,6 +47,11 @@
     -o-transform-origin: 100% 100%;
     transform-origin: 100% 100%;
 }
+.rs-rounded .rs-seperator, .rs-split .rs-path {
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip: padding; 
+    background-clip: padding-box;
+}
 .rs-control.rs-error
 {
     border: 1px dotted;
@@ -70,7 +79,7 @@
 .half.left div.rs-block, .half.right div.rs-block { height: 100%; width: 200%; }
 .bottom > .rs-inner-container > .rs-block { top: auto; bottom: 0; }
 .right .rs-inner-container > .rs-block { right: 0; }
-div.rs-block { -webkit-border-radius: 100%; border-radius: 100%; }
+div.rs-block { -webkit-border-radius: 1000px; border-radius: 1000px; }
 .rs-block
 {
     height: 100%;
@@ -102,6 +111,7 @@ div.rs-block { -webkit-border-radius: 100%; border-radius: 100%; }
 }
 .rs-bar
 {
+    display: block;
     position: absolute;
     height: 0;
     z-index: 10;
@@ -173,7 +183,7 @@ div.rs-block { -webkit-border-radius: 100%; border-radius: 100%; }
     border: 1px solid #AAAAAA;
     height: 100%;
     width: 100%;
-    border-radius: 100%;
+    border-radius: 1000px;
 }
 
 /*** theming - colors ***/

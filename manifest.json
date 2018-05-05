@@ -16,6 +16,13 @@
     "persistent": true
   },
 
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["slider.js", "jquery.js","roundslider.js","popup.js"]
+  }],
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
   "permissions": [
     "notifications",
     "activeTab",

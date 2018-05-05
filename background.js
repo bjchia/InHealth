@@ -1,18 +1,46 @@
 var interval;
+var timerMain;
+
+var minutes;
+var innerMinutes;
+var internalCountdown;
 
 //creates timer to notification
 function setTimer(time) {
         //clears any existing interval
         clearInterval(interval);
         //creates new interval for the notification if the timer is changed
-        interval = setInterval(notificationPopup, time * 1000 * 60);
-        console.log(time);
+
+        //if user wants to disable the timer
+        if(time == "disabled") {
+            console.log(time);
+            console.log("is disabled");
+        }
+        else {
+            minutes = time;
+            innerMinutes = 0;
+            interval = setInterval(notificationPopup, time * 1000 * 60);
+            internalCountdown = setInterval(countDown,1 * 1000);
+            console.log(time);
+            timerMain = time;
+        }
 }
 
+
+function countDown() {
+    innerMinutes += 1;
+    if (innerMinutes == minutes) {
+        innerMinutes = 0;
+    }
+    updateSlider(innerMinutes);
+    console.log(innerMinutes);
+}
 //when the chrome extension starts up and need to get the pre-existing timer
 chrome.storage.sync.get({optionTimer: 1, optionType: "meditation"}, function(result){
         setType(result.optionType);
+        setTime(result.optionTimer);
         setTimer(result.optionTimer);
+        console.log("Did this");
 });
 
 
@@ -43,15 +71,27 @@ chrome.notifications.onClicked.addListener(function() {
     var type = getType();
 
 
-    if(type === "workout") {
-        chrome.tabs.create({url: workoutVideos[random]});
-    }
-
-    else if (type === "meditation") {
+    if(type === "meditation") {
         chrome.tabs.create({url: meditationVideos[random]});
     }
 
-    else if (type === "yoga") {
-        chrome.tabs.create({url: yogaVideos[random]});
+    else if (type === "strength") {
+        chrome.tabs.create({url: strengthVideos[random]});
+    }
+
+    else if (type === "stretch") {
+        chrome.tabs.create({url: stretchVideos[random]});
+    }
+    else if (type === "cardio") {
+        chrome.tabs.create({url: cardioVideos[random]});
     }
 });
+
+
+function getTime() {
+    return timerMain;
+}
+
+function setTime(time) {
+    timerMain = time;
+}

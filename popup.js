@@ -1,9 +1,12 @@
-var optionButton = document.querySelectorAll('.btn');
+var optionButton = document.querySelectorAll('.btn-options');
+
+var obj;
 
 //saves the options of the new timer
 function save_options() {
     //gets value of dropdown menu
-    var time = document.getElementById('timer').value;
+    var time = $("#slider input[name='slider']")[0].value;
+    console.log(time);
     //sets the optionTimer to the new time specified by the user
     chrome.storage.sync.set({
         optionTimer: time
@@ -17,15 +20,22 @@ function save_options() {
     });
 }
 
+
+//if the slider changes value
+function updateSlider(val) {
+    obj.option("value",val);
+}
+
 //adds functionality to save button
-document.getElementById('save').addEventListener('click',
-    save_options);
+// document.getElementById('save').addEventListener('click',
+//     save_options);
 
 //when the page is loaded up and add active button to the previously saved option type
 chrome.storage.sync.get(['optionTimer', 'optionType'], function(result) {
     console.log(result.optionTimer);
-    document.getElementById('timer').value = result.optionTimer;
+    setTime(result.optionTimer);
     document.getElementById(result.optionType).classList.add("active");
+    updateSlider(result.optionTimer);
 });
 
 
@@ -58,3 +68,14 @@ for(var i = 0; i < optionButton.length; i++) {
     console.log("entered");
     optionButton[i].addEventListener('click', updateColor);
 }
+for(var i = 0; i < optionButton.length; i++) {
+    optionButton[i].classList.remove("active");
+}
+
+$("#slider").roundSlider(sliderOptions);
+
+
+obj = $("#slider").data("roundSlider");
+
+
+

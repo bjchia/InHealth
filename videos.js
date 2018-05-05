@@ -1,3 +1,4 @@
-var workoutVideos =["https://www.reddit.com"];
-var yogaVideos =["https://www.google.com"];
-var meditationVideos =["https://www.youtube.com"];
+var meditationVideos =["https://www.reddit.com"];
+var strengthVideos =["https://www.google.com"];
+var stretchVideos =["https://www.youtube.com"];
+var cardioVideos =["https://www.youtube.com"];

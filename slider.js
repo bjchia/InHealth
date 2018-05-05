@@ -1,9 +1,14 @@
-$("#slider").roundSlider({
-    radius: 60,
-    width: 10,
-    handleSize: "20,10",
-    handleShape: "square",
+var sliderOptions = {
+    radius: 80,
+    circleShape: "pie",
     sliderType: "min-range",
-    startAngle: 40,
-    value: 50
-});
+    value: 50,
+    width: 15,
+    handleSize: "25,7",
+    min: 30,
+    max: 120,
+    startAngle: 315,
+    change: function (args) {
+        save_options();
+    }
+}

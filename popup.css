@@ -3,3 +3,18 @@ body {
     position: relative;
     vertical-align:middle;
 }
+
+#slider {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    z-index: -1;
+}
+
+button {
+    min-width: 120px;
+}
+
+#ex1Slider .slider-selection {
+    background: #BABABA;
+}
