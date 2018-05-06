@@ -18,3 +18,13 @@ button {
 #ex1Slider .slider-selection {
     background: #BABABA;
 }
+
+.inHealthImage {
+    margin: auto;
+}
+
+.inHealthTitle {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 35px;
+    color: indianred;
+}

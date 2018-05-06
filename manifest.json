@@ -2,13 +2,18 @@
   "manifest_version": 2,
 
 
-  "name": "Test name",
-  "description": "TEST",
+  "name": "InHealth",
+  "description": "Transforming office health through technology",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "calhacks.png",
+    "default_icon": "logo.png",
     "default_popup": "popup.html"
+
+  },
+
+  "icons": {
+    "128": "logo.png"
   },
 
   "background": {

@@ -20,6 +20,7 @@ function setTimer(time) {
         else {
             minutes = time;
             innerMinutes = 0;
+            console.log("time is " + time);
             interval = setInterval(notificationPopup, time * 1000 * 1);
             internalCountdown = setInterval(countDown,1 * 1000);
             console.log(time);

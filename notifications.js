@@ -2,28 +2,28 @@ var meditationOptions = {
     type: "basic",
     title: "Meditation",
     message: "Click for a quick meditation video!",
-    iconUrl: "calhacks.png"
+    iconUrl: "logo.png"
 }
 
 var strengthOptions = {
     type: "basic",
     title: "Strength",
     message: "Click for a quick workout video!",
-    iconUrl: "calhacks.png"
+    iconUrl: "logo.png"
 }
 
 var stretchOptions = {
     type: "basic",
     title: "Stretch",
     message: "Click for a quick stretch video!",
-    iconUrl: "calhacks.png"
+    iconUrl: "logo.png"
 }
 
 var cardioOptions = {
     type: "basic",
     title: "Cardio",
     message: "Click for a quick cardio video!",
-    iconUrl: "calhacks.png"
+    iconUrl: "logo.png"
 }
 
 var type;

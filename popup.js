@@ -12,7 +12,7 @@ function save_options() {
     console.log(time);
     //sets the optionTimer to the new time specified by the user
     chrome.storage.sync.set({
-        optionTimer: time
+        optionTimer: time, optionCountDown: 0
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -99,6 +99,3 @@ $("#slider").roundSlider(sliderOptions);
 
 
 obj = $("#slider").data("roundSlider");
-
-
-
